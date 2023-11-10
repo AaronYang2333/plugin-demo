@@ -1,0 +1,34 @@
+server:
+  port: 8085
+logging:
+  level:
+    root: INFO
+spring:
+  h2:
+    console.enabled: true
+    console:
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:file:./h2
+    driver-class-name: org.h2.Driver
+    username: h2user
+    password: h2password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        show_sql: false
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+plugin:
+  enable: true
+  run-mode: prod
+  plugin-path:
+    - D:\Projects\plugin_demo\plugin-demo\plugins\module_a\build\libs\module_a-0.0.1-SNAPSHOT-all.jar
